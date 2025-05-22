@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Simple Page</title>
+    <title>Countdown Page</title>
     <style>
         body {
             background-color: blue;
             text-align: center;
+            color: white;
+            font-family: Arial, sans-serif;
         }
         h1 {
             color: red;
@@ -14,10 +16,40 @@
         h2 {
             color: green;
         }
+        #countdown {
+            font-size: 48px;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
     <h1>Hello there</h1>
     <h2>SAL</h2>
+    <div id="countdown">10</div>
+
+    <script>
+        let count = 10;
+        const countdownEl = document.getElementById('countdown');
+        const originalBg = 'blue';
+
+        function startCountdown() {
+            document.body.style.backgroundColor = originalBg;
+            count = 10;
+            countdownEl.textContent = count;
+
+            let timer = setInterval(() => {
+                count--;
+                countdownEl.textContent = count;
+
+                if (count === 0) {
+                    clearInterval(timer);
+                    document.body.style.backgroundColor = 'red';
+                    setTimeout(startCountdown, 2000);
+                }
+            }, 1000);
+        }
+
+        startCountdown();
+    </script>
 </body>
 </html>
