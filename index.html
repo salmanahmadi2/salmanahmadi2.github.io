@@ -31,10 +31,6 @@
             background-color: #f44336;
             color: white;
         }
-        #noBtn:hover {
-            background-color: #4CAF50;
-            color: white;
-        }
     </style>
 </head>
 <body>
@@ -46,6 +42,18 @@
         function goToCongrats() {
             window.location.href = "congrats.html";
         }
+
+        const noBtn = document.getElementById('noBtn');
+
+        noBtn.addEventListener('mouseover', () => {
+            noBtn.textContent = "Yes";
+            noBtn.style.backgroundColor = "#4CAF50";
+        });
+
+        noBtn.addEventListener('mouseout', () => {
+            noBtn.textContent = "No";
+            noBtn.style.backgroundColor = "#f44336";
+        });
     </script>
 </body>
 </html>
