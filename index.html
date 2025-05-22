@@ -1,55 +1,51 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Countdown Page</title>
+    <title>Will You Go on a Date?</title>
     <style>
         body {
-            background-color: blue;
+            background: linear-gradient(to right, #ffecd2, #fcb69f);
             text-align: center;
-            color: white;
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding-top: 100px;
+            color: #333;
         }
         h1 {
-            color: red;
-            font-weight: bold;
+            font-size: 36px;
+            margin-bottom: 40px;
         }
-        h2 {
-            color: green;
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            margin: 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
         }
-        #countdown {
-            font-size: 48px;
-            margin-top: 20px;
+        #yesBtn {
+            background-color: #4CAF50;
+            color: white;
+        }
+        #noBtn {
+            background-color: #f44336;
+            color: white;
+        }
+        #noBtn:hover {
+            background-color: #4CAF50;
+            color: white;
         }
     </style>
 </head>
 <body>
-    <h1>Hello there</h1>
-    <h2>SAL</h2>
-    <div id="countdown">10</div>
+    <h1>Do you want to go on a date with me?</h1>
+    <button id="yesBtn" onclick="goToCongrats()">Yes</button>
+    <button id="noBtn" onclick="goToCongrats()">No</button>
 
     <script>
-        let count = 10;
-        const countdownEl = document.getElementById('countdown');
-        const originalBg = 'blue';
-
-        function startCountdown() {
-            document.body.style.backgroundColor = originalBg;
-            count = 10;
-            countdownEl.textContent = count;
-
-            let timer = setInterval(() => {
-                count--;
-                countdownEl.textContent = count;
-
-                if (count === 0) {
-                    clearInterval(timer);
-                    document.body.style.backgroundColor = 'red';
-                    setTimeout(startCountdown, 2000);
-                }
-            }, 1000);
+        function goToCongrats() {
+            window.location.href = "congrats.html";
         }
-
-        startCountdown();
     </script>
 </body>
 </html>
